@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+ <title>#{get 'title' /}</title>		
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+            
+			<link rel="stylesheet" type="text/css" media="screen" href="@{'/public/stylesheets/bootstrap.css'}" />
+			<link rel="stylesheet" type="text/css" media="screen" href="@{'/public/stylesheets/bootstrap-responsive.css'}" />
+			<link rel="stylesheet" type="text/css" media="screen" href="@{'/public/stylesheets/style.css'}" />
+			
+			<script src="@{'/public/javascripts/jquery.js'}"></script>
+		    <script src="@{'/public/javascripts/bootstrap-transition.js'}"></script>
+		    <script src="@{'/public/javascripts/bootstrap-alert.js'}"></script>
+		    <script src="@{'/public/javascripts/bootstrap-modal.js'}"></script>
+		    <script src="@{'/public/javascripts/bootstrap-dropdown.js'}"></script>
+		    <script src="@{'/public/javascripts/bootstrap-scrollspy.js'}"></script>
+		    <script src="@{'/public/javascripts/bootstrap-tab.js'}"></script>
+		    <script src="@{'/public/javascripts/bootstrap-tooltip.js'}"></script>
+		    <script src="@{'/public/javascripts/bootstrap-popover.js'}"></script>
+		    <script src="@{'/public/javascripts/bootstrap-button.js'}"></script>
+		    <script src="@{'/public/javascripts/bootstrap-collapse.js'}"></script>
+		    <script src="@{'/public/javascripts/bootstrap-carousel.js'}"></script>
+		    <script src="@{'/public/javascripts/bootstrap-typeahead.js'}"></script>
+		
+			<script type="text/javascript" charset="utf-8">
+				$('.dropdown-toggle').dropdown();
+			</script>
+
+</head>
+
+<body>
+
+#{include 'menu.html' /}
+
+<div id="header">
+  <h1>Prontuário Medico</h1>
+</div>
+<div id="main">
+<div class="botao-index"><a href="@{Application.index()}">+ Principal</a></div>
+<div class="botao-inserir"><a href="@{Application.inserir()}">+ Inserir novo paciente</a></div>
+<div class="botao-inserir"><a href="@{Application.inserir_funcionario()}">+ Inserir novo funcionario</a></div>
+<div class="botao-consultar"><a href="@{Application.consultar()}">+ Consultar um paciente</a></div>
+<div class="botao-visualizar"><a href="@{Application.visualizar()}">+ Visualizar todos os pacientes</a></div>
+<div class="botao-visualizar"><a href="@{Application.visualizar_funcionario()}">+ Visualizar todos os funcionario</a></div>
+</div>
+<div class="linha"></div>
+<div id="geral">
+<div id="conteudo">
+<div class="linha">
+<div class="titulo">.: Prontuário</div>
+
+#{doLayout /}
+</div>
+</div>
+</div>
+</body>
+</html>

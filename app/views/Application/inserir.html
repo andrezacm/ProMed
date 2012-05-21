@@ -1,0 +1,74 @@
+#{extends 'application.html' /} #{set title:'Inserir Paciente' /}
+
+<div class="container">
+	<div class="hero-unit">
+
+	#{form @Application.cadastrar_paciente()} 
+		
+		#{ifErrors}
+			<p style="color: red;">
+				<strong>ATENÇÃO: </strong>Preencha todos os campos obrigatórios.
+			</p>
+		#{/ifErrors}
+
+
+		<div class="control-group">
+
+			<label for="nome">Nome:</label>
+			<div class="controls">
+				<input type="text" name="nome" id="nome" value="${params.nome}" />
+			</div>
+
+			<label for="dataNascimento">Data de nascimento:</label>
+			<div class="controls">
+				<input type="text" name="dataNascimento" id="dataNascimento" value="${params.dataNascimento}" />
+			</div>
+			
+			<label for="sexo">Sexo:</label>
+			<div class="controls">
+				<input type="text" name="sexo" id="sexo" value="${params.sexo}" />
+			</div>
+			
+			<label for="rg">RG:</label>
+			<div class="controls">
+				<input type="text" name="rg" id="rg" value="${params.rg}" />
+			</div>
+			
+			<label for="email">E-mail:</label>
+			<div class="controls">
+				<input type="text" name="email" id="email" value="${params.email}" />
+			</div>
+			
+			<label for="telefone">Telefone:</label>
+			<div class="controls">
+				<input type="text" name="telefone" id="telefone" value="${params.telefone}" />
+			</div>
+			
+			<label for="end">Endereço:</label>
+			<div class="controls">
+				<input type="text" name="end" id="end" value="${params.end}" />
+			</div>
+
+			<label for="cep">CEP:</label>
+			<div class="controls">
+				<input type="text" name="cep" id="cep" value="${params.cep}" />
+			</div>
+			
+			<label for="plano">Plano:</label>
+			<div class="controls">
+				<input type="text" name="plano" id="plano" value="${params.planoDesaude}" />
+			</div>
+			
+			<label for="end">Endereço:</label>
+			<div class="controls">
+				<input type="text" name="end" id="end" value="${params.end}" />
+			</div>						
+
+			<input type="submit" value="Cadastrar o Paciente" />
+
+		</div>
+
+	#{/form}
+
+	</div>
+</div>

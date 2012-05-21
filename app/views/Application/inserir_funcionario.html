@@ -1,0 +1,39 @@
+#{extends 'application.html' /}
+#{set title:'Inclusão' /}
+
+#{form @Application.cadastrar_funcionario()}
+#{ifErrors}
+<div class="linha"><p style="color:red;"><strong>ATENÇÃO: </strong>Preencha todos os campos obrigatórios.</p></div>
+<div class="linha"></div>
+   #{/ifErrors}
+
+<p><label for="nome">Nome:</label></p>
+<p><input type="text" name="nome" id="nome" value="${params.nome}" /></p>
+
+<p><label for="dataNascimento">Data de Nascimento:</label></p>
+<p><input type="text" name="dataNascimento" id="dataNascimento" value="${params.dataNascimento}" /></p>
+
+<p><label for="sexo">Sexo:</label></p>
+<p><input type="text" name="sexo" id="sexo" value="${params.sexo}" /></p>
+
+<p><label for="rg">Rg:</label></p>
+<p><input type="text" name="rg" id="rg" value="${params.rg}" /></p>
+
+<p><label for="email">Email:</label></p>
+<p><input type="text" name="email" id="email" value="${params.email}" /></p>
+
+<p><label for="telefone">Telefone:</label></p>
+<p><input type="text" name="telefone" id="telefone" value="${params.telefone}" /></p>
+
+<p><label for="cargo">Cargo:</label></p>
+<p><input type="text" name="cargo" id="cargo" value="${params.cargo}" /></p>
+
+<div class="btn-submit">
+<p><input type="submit" value="Cadastrar o funcionario" /></p>
+</div>
+
+#{/form}
+
+<p>
+<a href="@{Application.index()}">Voltar</a>
+</p>

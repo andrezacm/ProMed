@@ -1,0 +1,30 @@
+#{extends 'application.html' /}
+#{set title:'Edição' /}
+
+#{form @Application.editar_funcionario(funcionario.id)}
+#{ifErrors}
+<div class="linha"><p style="color:red;"><strong>ATENÇÃO: </strong>Preencha todos os campos obrigatórios.</p></div>
+<div class="linha"></div>
+#{/ifErrors}
+
+<p><label for="nome">Nome:</label></p>
+<p><input type="text" name="nome" id="nome" value="${funcionario.nome}" /></p>
+
+<p><label for="rg">RG:</label></p>
+<p><input type="text" name="rg" id="rg" value="${funcionario.rg}" /></p>
+
+<p><label for="telefone">Telefone:</label></p>
+<p><input type="text" name="telefone" id="telefone" value="${funcionario.telefone}" /></p>
+
+<p><label for="email">Email:</label></p>
+<p><input type="text" name="email" id="email" value="${funcionario.email}" /></p>
+
+<p><label for="cargo">Cargo:</label></p>
+<p><input type="text" name="cargo" id="cargo" value="${funcionario.cargo}" /></p>
+
+
+<div class="btn-submit">
+<p><input type="submit" value="Editar funcionario" /></p>
+</div>
+
+#{/form}

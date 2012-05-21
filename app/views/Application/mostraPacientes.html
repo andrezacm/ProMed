@@ -1,0 +1,16 @@
+#{extends 'application.html' /}
+#{set title:'Listagem' /}
+
+
+#{if pacientes != null}
+<div class="linha">
+<p>Nenhum paciente cadastrado.</p>
+</div>
+#{/if}
+#{else}
+#{list items:paciente, as:'paciente'}
+<div class="linha">
+<p><a href="@{Application.visualizar(paciente.rg)}">&raquo; ${paciente.nome} - ${paciente.rg}</a></p>
+</div>
+  #{/list}
+#{/else}

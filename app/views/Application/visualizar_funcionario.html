@@ -1,0 +1,22 @@
+#{extends 'application.html' /}
+#{set title:'Visualizaçao' /}
+
+#{list items:funcionario, as:'funcionario'}
+
+<p><label for="nome">Nome: </label>${funcionario.nome}</p>
+<p><label for="telefone">Telefone :</label>${funcionario.telefone}</p>
+<p><label for="rg">Rg: </label>${funcionario.rg}</p>
+<p><label for="cargo">Cargo: </label>${funcionario.cargo}</p>
+<p>
+<a href="@{Application.editar_fun(funcionario.id)}">Editar</a>
+<a href="@{Application.excluir_funcionario(funcionario.id)}" onClick="if(!confirm('Deseja excluir este funcionario?')){return false;}">Excluir</a>
+</p>
+<hr />
+
+#{/list}
+
+<div class="btn-submit">
+<p>
+<a href="@{Application.index()}">Voltar</a>
+</p>
+</div>

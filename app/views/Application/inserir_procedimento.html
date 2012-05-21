@@ -1,0 +1,35 @@
+#{extends 'application.html' /}
+#{set title:'Inclusão' /}
+
+#{form @Application.cadastrar_procedimento()}
+#{ifErrors}
+<div class="linha"><p style="color:red;"><strong>ATENÇÃO: </strong>Preencha todos os campos obrigatórios.</p></div>
+<div class="linha"></div>
+   #{/ifErrors}
+
+<p><label for="nome">Nome:</label></p>
+<p><input type="text" name="nome" id="nome" value="${params.nome}" /></p>
+
+<p><label for="funcionario">Funcionario:</label></p>
+<p><select name="funcionario" id="funcionario">
+
+<p>
+#{list items:models.Funcionario.findAll(), as:'funcionario'}
+<option value="${funcionario.id}">${funcionario.nome}</option>
+#{/list}
+</select></p>
+
+<p><label for="observacoes">observacoes:</label></p>
+<p><input type="text" name="observacao" id="observacao" value="${params.observacao}" /></p>
+
+<input type="hidden" name="idPaciente" id="idPaciente" value="${idPaciente}" />
+
+<div class="btn-submit">
+<p><input type="submit" value="Cadastrar o procedimento" /></p>
+</div>
+
+#{/form}
+
+<p>
+<a href="@{Application.index()}">Voltar</a>
+</p>

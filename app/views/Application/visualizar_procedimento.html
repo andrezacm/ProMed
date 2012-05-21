@@ -1,0 +1,19 @@
+#{extends 'application.html' /}
+#{set title:'Visualizaçao' /}
+
+#{list items:procedimento, as:'procedimento'}
+
+<p><label for="nome">Nome: </label>${procedimento.nome}</p>
+<p><label for="paciente">Paciente: </label> ${procedimento.idPaciente} </p>
+<p><label for="funcionario">Funcionario: </label> ${procedimento.idFuncionario} </p>
+<p><label for="observacao">Observacao: </label>${procedimento.observacao}</p>
+<p>
+<hr />
+
+#{/list}
+
+<div class="btn-submit">
+<p>
+<a href="@{Application.index()}">Voltar</a>
+</p>
+</div>
