@@ -1,28 +1,40 @@
-#{extends 'application.html' /}
-#{set title:'Visualizaçao' /}
+#{extends 'application.html' /} #{set title:'Listar Pacientes' /}
 
-#{list items:paciente, as:'paciente'}
+<div class="container">
+	<div class="row-fluid">
+		<div class="span12">
+			<div class="hero-unit">
 
-<p><label for="nome">Nome: </label>${paciente.nome}</p>
-<p><label for="telefone">Telefone :</label>${paciente.telefone}</p>
-<p><label for="rg">Rg: </label>${paciente.rg}</p>
-<p><label for="end">Endere&ccedil;o:</label>${paciente.end}</p>
-<p><label for="plano">Plano de saude: </label>${paciente.planoDesaude}</p>
-<p>
-<a href="@{Application.editar(paciente.id)}">Editar</a>
-<a href="@{Application.excluir(paciente.id)}" onClick="if(!confirm('Deseja excluir este paciente?')){return false;}">Excluir</a>
-</p>
-<p>
-<a href="@{Application.inserir_procedimento(paciente.id)}">Inserir Procedimento</a>
-<a href="@{Application.visualizar_procedimento(paciente.id)}">Visualizar Procedimento</a>
-</p>
+				<table class="table table-striped table-bordered table-condensed">
+					<thead>
+						<tr>
+							<th>Nome</th>
+							<th>Telefone</th>
+							<th>Ações</th>
+						</tr>
+					</thead>
+					<tbody>
 
-<hr />
+						#{list items:paciente, as:'paciente'}
 
-#{/list}
+						<tr>
+							<td>${paciente.nome}</td>
+							<td>${paciente.telefone}</td>
+							<td><a href="@{Application.editar(paciente.id)}">Editar</a>
+								<a href="@{Application.excluir(paciente.id)}"
+								onClick="if(!confirm('Deseja excluir este paciente?')){return false;}">Excluir</a>
+								<a href="@{Application.inserir_procedimento(paciente.id)}">Inserir
+									Procedimento</a> <a
+								href="@{Application.visualizar_procedimento(paciente.id)}">Visualizar
+									Procedimento</a></td>
+						</tr>
 
-<div class="btn-submit">
-<p>
-<a href="@{Application.index()}">Voltar</a>
-</p>
+						#{/list}
+
+					</tbody>
+				</table>
+
+			</div>
+		</div>
+	</div>
 </div>
