@@ -9,7 +9,7 @@ import play.data.validation.Required;
 import play.db.jpa.Model;
 
 @Entity
-public class Procedimento extends Model {
+public class MProcedimento extends Model {
 
 	@Required
 	public String nome;
@@ -19,7 +19,7 @@ public class Procedimento extends Model {
 	@Required
 	public String observacao;
 
-	public Procedimento(String nome, Long idPaciente, Long idFuncionario, String observacao)  {
+	public MProcedimento(String nome, Long idPaciente, Long idFuncionario, String observacao)  {
 		this.nome = nome;
 		this.idPaciente= idPaciente;
 		this.idFuncionario = idFuncionario;

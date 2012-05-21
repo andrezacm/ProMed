@@ -9,36 +9,24 @@ import play.data.validation.Required;
 import play.db.jpa.Model;
 
 @Entity
-public class Paciente extends Model {
+public class MFuncionario extends Model {
 
 	@Required
 	public String nome;
-	@Required
 	public String dataNascimento;
-	@Required
 	public String sexo;
-	@Required
 	public String rg;
-	@Required
-	public String end;
-	@Required
-	public String cep;
-	@Required
 	public String telefone;
-	@Required
 	public String email;
-	@Required
-	public String planoDesaude;
+	public String cargo;
 
-	public Paciente(String nome,String dataNascimento,String sexo, String rg,String email, String telefone, String end, String cep,String planoDesaude)  {
+	public MFuncionario(String nome,String dataNascimento,String sexo, String rg,String email, String telefone, String cargo)  {
 		this.nome = nome;
 		this.dataNascimento= dataNascimento;
 		this.sexo = sexo;
 		this.rg = rg;
 		this.email = email;
 		this.telefone = telefone;
-		this.end = end;
-		this.cep = cep;
-		this.planoDesaude = planoDesaude;
+		this.cargo = cargo;
 	}
 }

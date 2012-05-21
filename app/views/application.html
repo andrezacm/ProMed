@@ -34,26 +34,7 @@
 
 #{include 'menu.html' /}
 
-<div id="header">
-  <h1>Prontuário Medico</h1>
-</div>
-<div id="main">
-<div class="botao-index"><a href="@{Application.index()}">+ Principal</a></div>
-<div class="botao-inserir"><a href="@{Application.inserir()}">+ Inserir novo paciente</a></div>
-<div class="botao-inserir"><a href="@{Application.inserir_funcionario()}">+ Inserir novo funcionario</a></div>
-<div class="botao-consultar"><a href="@{Application.consultar()}">+ Consultar um paciente</a></div>
-<div class="botao-visualizar"><a href="@{Application.visualizar()}">+ Visualizar todos os pacientes</a></div>
-<div class="botao-visualizar"><a href="@{Application.visualizar_funcionario()}">+ Visualizar todos os funcionario</a></div>
-</div>
-<div class="linha"></div>
-<div id="geral">
-<div id="conteudo">
-<div class="linha">
-<div class="titulo">.: Prontuário</div>
-
 #{doLayout /}
-</div>
-</div>
-</div>
+
 </body>
 </html>

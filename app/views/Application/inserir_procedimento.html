@@ -1,35 +1,43 @@
-#{extends 'application.html' /}
-#{set title:'Inclusão' /}
+#{extends 'application.html' /} #{set title:'Inserir Procedimento' /}
 
-#{form @Application.cadastrar_procedimento()}
-#{ifErrors}
-<div class="linha"><p style="color:red;"><strong>ATENÇÃO: </strong>Preencha todos os campos obrigatórios.</p></div>
-<div class="linha"></div>
-   #{/ifErrors}
+<div class="container">
+	<div class="hero-unit">
 
-<p><label for="nome">Nome:</label></p>
-<p><input type="text" name="nome" id="nome" value="${params.nome}" /></p>
+		#{form @Application.cadastrar_procedimento()} #{ifErrors}
+		<p style="color: red;">
+			<strong>ATENï¿½ï¿½O: </strong>Preencha todos os campos obrigatï¿½rios.
+		</p>
+		#{/ifErrors}
 
-<p><label for="funcionario">Funcionario:</label></p>
-<p><select name="funcionario" id="funcionario">
+		<div class="control-group">
 
-<p>
-#{list items:models.Funcionario.findAll(), as:'funcionario'}
-<option value="${funcionario.id}">${funcionario.nome}</option>
-#{/list}
-</select></p>
+			<label for="nome">Nome:</label>
+			<div class="controls">
+				<input type="text" name="nome" id="nome" value="${params.nome}" />
+			</div>
 
-<p><label for="observacoes">observacoes:</label></p>
-<p><input type="text" name="observacao" id="observacao" value="${params.observacao}" /></p>
+			<label for="funcionario">Funcionario:</label>
+			<div class="controls">
+				<select name="funcionario" id="funcionario"> 
+					#{list items:models.MFuncionario.findAll(), as:'funcionario'}
+					<option value="${funcionario.id}">${funcionario.nome}</option>
+					#{/list}
+				</select>
+			</div>
 
-<input type="hidden" name="idPaciente" id="idPaciente" value="${idPaciente}" />
+			<label for="observacao">ObservaÃ§Ã£o:</label>
+			<div class="controls">
+				<input type="text" name="observacao" id="observacao"
+					value="${params.observacao}" />
+			</div>
 
-<div class="btn-submit">
-<p><input type="submit" value="Cadastrar o procedimento" /></p>
+			<input type="hidden" name="idPaciente" id="idPaciente" value="${idPaciente}" /> 
+			
+			<input type="submit" value="Cadastrar o Procedimento" />
+
+		</div>
+
+		#{/form}
+
+	</div>
 </div>
-
-#{/form}
-
-<p>
-<a href="@{Application.index()}">Voltar</a>
-</p>

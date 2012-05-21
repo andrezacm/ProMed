@@ -11,11 +11,10 @@ import models.*;
 public class Application extends Controller {
 
 	public static void index() {
-		List<Paciente> pacientes = Paciente.find("order by nome asc").fetch();
-		render(pacientes);
+		render();
 	}
 
-	public static void inserir() {
+	public static void inserir_paciente() {
 		render();
 	}
 
@@ -27,55 +26,55 @@ public class Application extends Controller {
 		render(idPaciente);
 	}
 	
-	public static void visualizar() {
-		List<Paciente> paciente = Paciente.find("order by nome asc").fetch();
+	public static void visualizar_pacientes() {
+		List<MPaciente> paciente = MPaciente.find("order by nome asc").fetch();
 		render(paciente);
 	}
 	
 	public static void visualizar_funcionario() {
-		List<Funcionario> funcionario = Funcionario.find("order by nome asc").fetch();
+		List<MFuncionario> funcionario = MFuncionario.find("order by nome asc").fetch();
 		render(funcionario);
 	}
 
 	public static void visualizar_procedimento(Long idPaciente) {
-		List<Procedimento> procedimento = Procedimento.find("idPaciente", idPaciente).fetch();
+		List<MProcedimento> procedimento = MProcedimento.find("idPaciente", idPaciente).fetch();
 		render(procedimento);
 	}
 	
 	public static void editar(Long id) {
-		Paciente paciente = Paciente.find("id", id).first();
+		MPaciente paciente = MPaciente.find("id", id).first();
 		render(paciente);
 	}
 	
 	public static void editar_fun(Long id) {
-		Funcionario funcionario = Funcionario.find("id", id).first();
+		MFuncionario funcionario = MFuncionario.find("id", id).first();
 		render("Application/editar_funcionario.html", funcionario);
 	}
 
 	public static void excluir(Long id) {
-		Paciente paciente = Paciente.find("id", id).first();
+		MPaciente paciente = MPaciente.find("id", id).first();
 		paciente.delete();
 		index();
 	}
 
 	public static void excluir_funcionario(Long id) {
-		Funcionario funcionario = Funcionario.find("id", id).first();
+		MFuncionario funcionario = MFuncionario.find("id", id).first();
 		funcionario.delete();
 		index();
 	}
 	
-	public static void cadastrar_paciente(String nome,String dataNascimento,String sexo, String rg,String email, String telefone, String end, String cep,String planoDesaude) {
-		Paciente paciente = new Paciente(nome,dataNascimento, sexo, rg,email,telefone,end,cep,planoDesaude);
+	/*public static void cadastrar_paciente(String nome,String dataNascimento,String sexo, String rg,String email, String telefone, String end, String cep,String planoDesaude) {
+		MPaciente paciente = new MPaciente(nome,dataNascimento, sexo, rg,email,telefone,end,cep,planoDesaude);
 		if (validation.hasErrors()) {
 			render("Application/inserir.html", paciente);
 		}
 
 		paciente.save();
 		index();
-	}
+	}*/
 	
 	public static void cadastrar_funcionario(String nome,String dataNascimento,String sexo, String rg,String email,String telefone,String cargo) {
-		Funcionario funcionario = new Funcionario(nome,dataNascimento, sexo, rg,email,telefone,cargo);
+		MFuncionario funcionario = new MFuncionario(nome,dataNascimento, sexo, rg,email,telefone,cargo);
 		if (validation.hasErrors()) {
 			render("Application/inserir_funcionario.html", funcionario);
 		}
@@ -85,7 +84,7 @@ public class Application extends Controller {
 	}
 
 	public static void cadastrar_procedimento(String nome, Long idPaciente, Long idFuncionario, String observacao) {
-		Procedimento procedimento = new Procedimento(nome, idPaciente, idFuncionario, observacao);
+		MProcedimento procedimento = new MProcedimento(nome, idPaciente, idFuncionario, observacao);
 		if (validation.hasErrors()) {
 			render("Application/inserir_procedimento.html", procedimento);
 		}
@@ -103,15 +102,15 @@ public class Application extends Controller {
 		validation.required(request.params.get("rg"));
 		 */		
 		String nome = request.params.get("nome");
-		List<Object> paciente = Paciente.find("nome", nome).fetch();
+		List<Object> paciente = MPaciente.find("nome", nome).fetch();
 		render("Application/consultar.html", paciente);
 	}
 
-	public static void editar_paciente(long id) {
+	/*public static void editar_paciente(long id) {
 		validation.required(request.params.get("nome"));
 		validation.required(request.params.get("rg"));
 
-		Paciente paciente = Paciente.find("id", id).first();
+		MPaciente paciente = MPaciente.find("id", id).first();
 
 		if (validation.hasErrors()) {
 			render("Application/editar.html", paciente);
@@ -129,12 +128,12 @@ public class Application extends Controller {
 
 		paciente.save();
 		index();
-	}
+	}*/
 	
 	public static void editar_funcionario(long id) {
 		validation.required(request.params.get("nome"));
 
-		Funcionario funcionario = Funcionario.find("id", id).first();
+		MFuncionario funcionario = MFuncionario.find("id", id).first();
 
 		if (validation.hasErrors()) {
 			render("Application/editar_funcionario.html", funcionario);

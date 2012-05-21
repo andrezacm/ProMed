@@ -1,39 +1,53 @@
-#{extends 'application.html' /}
-#{set title:'Inclusão' /}
+#{extends 'application.html' /} #{set title:'Inserir Funcionario' /}
 
-#{form @Application.cadastrar_funcionario()}
-#{ifErrors}
-<div class="linha"><p style="color:red;"><strong>ATENÇÃO: </strong>Preencha todos os campos obrigatórios.</p></div>
-<div class="linha"></div>
-   #{/ifErrors}
+<div class="container">
+	<div class="hero-unit">
 
-<p><label for="nome">Nome:</label></p>
-<p><input type="text" name="nome" id="nome" value="${params.nome}" /></p>
+		#{form @Application.cadastrar_funcionario()} #{ifErrors}
+		<p style="color: red;">
+			<strong>ATENï¿½ï¿½O: </strong>Preencha todos os campos obrigatï¿½rios.
+		</p>
+		#{/ifErrors}
 
-<p><label for="dataNascimento">Data de Nascimento:</label></p>
-<p><input type="text" name="dataNascimento" id="dataNascimento" value="${params.dataNascimento}" /></p>
+		<div class="control-group">
 
-<p><label for="sexo">Sexo:</label></p>
-<p><input type="text" name="sexo" id="sexo" value="${params.sexo}" /></p>
+			<label for="nome">Nome:</label>
+			<div class="controls">
+				<input type="text" name="nome" id="nome" value="${params.nome}" />
+			</div>
 
-<p><label for="rg">Rg:</label></p>
-<p><input type="text" name="rg" id="rg" value="${params.rg}" /></p>
+			<label for="dataNascimento">Data de nascimento:</label>
+			<div class="controls">
+				<input type="text" name="dataNascimento" id="dataNascimento"
+					value="${params.dataNascimento}" />
+			</div>
 
-<p><label for="email">Email:</label></p>
-<p><input type="text" name="email" id="email" value="${params.email}" /></p>
+			<label for="sexo">Sexo:</label>
+			<div class="controls">
+				<input type="text" name="sexo" id="sexo" value="${params.sexo}" />
+			</div>
 
-<p><label for="telefone">Telefone:</label></p>
-<p><input type="text" name="telefone" id="telefone" value="${params.telefone}" /></p>
+			<label for="rg">RG:</label>
+			<div class="controls">
+				<input type="text" name="rg" id="rg" value="${params.rg}" />
+			</div>
 
-<p><label for="cargo">Cargo:</label></p>
-<p><input type="text" name="cargo" id="cargo" value="${params.cargo}" /></p>
+			<label for="email">E-mail:</label>
+			<div class="controls">
+				<input type="text" name="email" id="email" value="${params.email}" />
+			</div>
 
-<div class="btn-submit">
-<p><input type="submit" value="Cadastrar o funcionario" /></p>
+			<label for="telefone">Telefone:</label>
+			<div class="controls">
+				<input type="text" name="telefone" id="telefone"
+					value="${params.telefone}" />
+			</div>
+
+			<input type="submit" value="Cadastrar o Funcionario" />
+		</div>
+		
+		#{/form}
+
+	</div>
 </div>
-
-#{/form}
-
-<p>
-<a href="@{Application.index()}">Voltar</a>
-</p>
+s

@@ -1,0 +1,48 @@
+#{extends 'application.html' /} 
+#{set title:'Inserir Paciente' /}
+
+<div class="container">
+
+	<h2>Inserir Paciente</h2>
+
+	<div class="hero-unit">
+
+	#{form @Paciente.cadastrar_paciente()} 
+		
+		#{ifErrors}
+			<p style="color: red;">
+				<strong>ATENÇÃO: </strong>Preencha todos os campos obrigatórios.
+			</p>
+		#{/ifErrors}
+
+
+		<div class="control-group">
+
+			<label for="nome">Nome:</label>
+			<div class="controls">
+				<input type="text" name="nome" id="nome" value="${params.nome}" />
+			</div>
+			
+			<label for="sobrenome">Sobrenome:</label>
+			<div class="controls">
+				<input type="text" name="sobrenome" id="sobrenome" value="${params.sobrenome}" />
+			</div>
+
+			<label for="rg">RG:</label>
+			<div class="controls">
+				<input type="text" name="rg" id="rg" value="${params.rg}" />
+			</div>
+			
+			<label for="cpf">CPF:</label>
+			<div class="controls">
+				<input type="text" name="cpf" id="cpf" value="${params.cpf}" />
+			</div>
+			
+			<input type="submit" value="Cadastrar o Paciente" />
+
+		</div>
+
+	#{/form}
+
+	</div>
+</div>
