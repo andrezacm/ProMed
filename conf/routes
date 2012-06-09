@@ -6,6 +6,10 @@
 GET     /                                       Application.index
 GET     /application/consultar                  Application.consultar
 
+# Form
+GET 	/paciente/formulario/{form}				Paciente.formulario(form: String)
+
+
 # Ignore favicon requests
 GET     /favicon.ico                            404
 

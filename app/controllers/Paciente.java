@@ -9,11 +9,17 @@ public class Paciente extends Controller{
 	
 	MPaciente paciente = new MPaciente();
 	
-	public static void inserir_paciente() {
-		render();
+	public static void formulario(String form) {
+		String a = "cadastrar";
+		
+		if (a.equals(form)){
+			render("Application/form_paciente.html");
+		} else {
+			render("Application/index.html");
+		}
 	}
 
-	public static void cadastrar_paciente(String nome,String sobrenome, String cpf, String rg) {
+	public static void cadastrar_paciente(String nome, String sobrenome, String cpf, String rg) {
 		MPaciente paciente = new MPaciente(nome, sobrenome, cpf, rg);
 		
 		if (validation.hasErrors()) {
@@ -23,5 +29,5 @@ public class Paciente extends Controller{
 		paciente.salvar();
 		Application.index();
 	}
-	
 }
+
