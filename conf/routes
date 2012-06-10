@@ -7,7 +7,7 @@ GET     /                                       Application.index
 GET     /application/consultar                  Application.consultar
 
 # Form
-GET 	/paciente/formulario/{form}				Paciente.formulario(form: String)
+GET 	/paciente/editar/{id}					Paciente.editar(id: int)
 
 
 # Ignore favicon requests

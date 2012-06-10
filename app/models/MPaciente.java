@@ -8,6 +8,7 @@ import javax.persistence.*;
 import dao.PacienteDAO;
 
 import java.util.*;
+
 import play.data.validation.Required;
 import play.db.jpa.Model;
 
@@ -17,6 +18,7 @@ public class MPaciente extends Model {
 	public String sobrenome;
 	public String cpf;
 	public String rg;
+	public Long id;
 
 	private PacienteDAO dao;
 	
@@ -27,6 +29,14 @@ public class MPaciente extends Model {
 		this.sobrenome = sobrenome;
 		this.cpf = cpf;
 		this.rg = rg;
+	}
+	
+	public MPaciente(String nome, String sobrenome, String cpf, String rg, Long id)  {
+		this.nome = nome;
+		this.sobrenome = sobrenome;
+		this.cpf = cpf;
+		this.rg = rg;
+		this.id = id;
 	}
 
 	public String getNome() {
@@ -61,12 +71,44 @@ public class MPaciente extends Model {
 		this.rg = rg;
 	}
 	
-	private void newDao(){
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+	
+	private void newDaoWithThis(){
 		dao = new PacienteDAO(this);
 	}
 	
+	private void newDao(){
+		dao = new PacienteDAO();
+	}
+	
 	public void salvar(){
-		newDao();
+		newDaoWithThis();
 		dao.adicionar();
+	}
+	
+	public void editar(){
+		newDaoWithThis();
+		dao.editar();
+	}
+	
+	public void deletar(Long id){
+		newDao();
+		dao.deletar(id);
+	}
+	
+	public List<MPaciente> listar(){
+		newDao();
+		return dao.getRegistros();
+	}
+	
+	public MPaciente getPaciente(int id){
+		newDao();
+		return dao.getPaciente(id);
 	}
 }

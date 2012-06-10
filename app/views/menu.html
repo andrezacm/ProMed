@@ -9,11 +9,11 @@
           <a class="brand" href="@{Application.index()}">ProMed</a>
           <div class="nav-collapse">
             <ul class="nav">
-              <li class="active"><a href="@{Application.index()}">Home</a></li>
+              <li><a href="@{Application.index()}">Home</a></li>
               <li class="dropdown" id="menu1"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Paciente <b class="caret"></b></a>
                 <ul class="dropdown-menu">
-                  <li><a href='@{Paciente.formulario("cadastrar")}'>Inserir</a></li>
-                  <li><a href="@{Application.visualizar_pacientes()}">Listar</a></li>
+                  <li><a href='@{Paciente.cadastrar()}'>Inserir</a></li>
+                  <li><a href="@{Paciente.listar()}">Listar</a></li>
                   <li><a href="@{Application.consultar()}">Buscar</a></li>
                 </ul>
               </li>

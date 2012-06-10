@@ -25,12 +25,12 @@ public class Application extends Controller {
 	public static void inserir_procedimento(Long idPaciente) {
 		render(idPaciente);
 	}
-	
+	/*
 	public static void visualizar_pacientes() {
 		List<MPaciente> paciente = MPaciente.find("order by nome asc").fetch();
 		render(paciente);
 	}
-	
+	*/
 	public static void visualizar_funcionario() {
 		List<MFuncionario> funcionario = MFuncionario.find("order by nome asc").fetch();
 		render(funcionario);
