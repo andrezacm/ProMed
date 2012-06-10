@@ -1,0 +1,28 @@
+#{extends 'application.html' /}
+#{set title:'Visualizar Profissional' /}
+
+<div class="container">
+
+	<div class="hero-unit">
+	    <p>
+	    	${profissional.nome} ${profissional.sobrenome}
+	    </p>
+	    <p>
+	    	${profissional.rg} | ${profissional.cpf}
+	    </p>
+	    <p>
+	    	%{cargo = models.MCargo.getCargo(profissional.id_cargo)}% 
+	    	${cargo.nome}
+	    	| 
+	    	
+	    	${profissional.especialidade}
+	    </p>  
+	    <p>
+	    	${profissional.observacao}
+	    </p>
+	      
+	</div>
+
+#{include 'footer.html' /}
+
+</div> <!-- /container -->

@@ -18,7 +18,7 @@ public class MCargo extends Model {
 	public String nome;
 	public String descricao;
 
-	private CargoDAO dao;
+	private static CargoDAO dao;
 	
 	public MCargo(){}
 	
@@ -51,7 +51,7 @@ public class MCargo extends Model {
 		dao = new CargoDAO(this);
 	}
 	
-	private void newDao(){
+	private static void newDao(){
 		dao = new CargoDAO();
 	}
 	
@@ -70,12 +70,12 @@ public class MCargo extends Model {
 		dao.deletar(id);
 	}
 	
-	public List<MCargo> listar(){
+	public static List<MCargo> listar(){
 		newDao();
 		return dao.getRegistros();
 	}
 	
-	public MCargo getCargo(int id){
+	public static MCargo getCargo(Long id){
 		newDao();
 		return dao.getCargo(id);
 	}

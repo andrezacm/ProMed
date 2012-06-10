@@ -119,7 +119,7 @@ public class CargoDAO {
 		return cargos;
 	}
 	
-	public MCargo getCargo(int id){
+	public MCargo getCargo(Long id){
 		
 		String sql = "select * from cargo where id = " + id;
 		
