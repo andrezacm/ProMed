@@ -7,6 +7,8 @@ import javax.persistence.*;
 
 import dao.PacienteDAO;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 import play.data.validation.Required;
@@ -14,31 +16,45 @@ import play.db.jpa.Model;
 
 public class MPaciente extends Model {
 
-	public String nome;
-	public String sobrenome;
+	//not null
+	public Long id;
 	public String cpf;
 	public String rg;
-	public Long id;
+	public String nome;
+	public String sobrenome;
+	public String data_nascimento;
+
+	public String sexo;
+	public String cidade;
+	public String estado;
+	public String pais;
+	public String observacoes;
+	public String data_cadastro;
 
 	private PacienteDAO dao;
 	
 	public MPaciente(){}
 	
-	public MPaciente(String nome, String sobrenome, String cpf, String rg)  {
+	public MPaciente(String nome, String sobrenome, String cpf, String rg, String data_nascimento, String sexo, 
+			String cidade, String estado, String pais, String observacoes)  {
+		
 		this.nome = nome;
 		this.sobrenome = sobrenome;
 		this.cpf = cpf;
 		this.rg = rg;
+		this.data_nascimento = data_nascimento;
+		this.sexo = sexo;
+		this.cidade = cidade;
+		this.estado = estado;
+		this.pais = pais;
+		this.observacoes = observacoes;
 	}
 	
-	public MPaciente(String nome, String sobrenome, String cpf, String rg, Long id)  {
-		this.nome = nome;
-		this.sobrenome = sobrenome;
-		this.cpf = cpf;
-		this.rg = rg;
-		this.id = id;
+	public void setDataCadastro(){
+		DateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		this.data_cadastro = format.format(new Date());
 	}
-
+	
 	public String getNome() {
 		return nome;
 	}

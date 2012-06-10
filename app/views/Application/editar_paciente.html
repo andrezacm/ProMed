@@ -38,6 +38,43 @@
 				<input type="text" name="cpf" id="cpf" value="${paciente.cpf}" />
 			</div>
 		
+			<label for="data_nascimento">Data nascimento:</label>
+			<div class="controls">
+				<input type="text" name="data_nascimento" id="data_nascimento" value="${paciente.data_nascimento}" />
+			</div>
+			
+			<div class="control-group">
+	            <label class="control-label">Sexo</label>
+	            <div class="controls">
+	              <label class="radio">
+	                <input type="radio" name="sexo" id="sexoM" value="m" checked=""> Masculino
+	              </label>
+	              <label class="radio">
+	                <input type="radio" name="sexo" id="sexoF" value="f" checked=""> Feminino
+	              </label>
+	            </div>
+	          </div>
+			
+			<label for="cidade">Cidade:</label>
+			<div class="controls">
+				<input type="text" name="cidade" id="cidade" value="${paciente.cidade}" />
+			</div>
+			
+			<label for="estado">Estado:</label>
+			<div class="controls">
+				<input type="text" name="estado" id="estado" value="${paciente.estado}" />
+			</div>
+			
+			<label for="pais">Pais:</label>
+			<div class="controls">
+				<input type="text" name="pais" id="pais" value="${paciente.pais}" />
+			</div>
+			
+			<label for="observacoes">Observações:</label>
+			<div class="controls">
+				<textarea name="observacoes" id="observacoes">${paciente.observacoes}</textarea>
+			</div>
+		
 			<input type="hidden" name="id" value="${paciente.id}" />
 			
 			<input type="submit" value="Salvar" />

@@ -21,9 +21,11 @@
 						<tr>
 							<td>${paciente.nome}</td>
 							<td>${paciente.cpf}</td>
-							<td><a href="@{Paciente.editar(paciente.id)}">Editar</a>
+							<td><a href="@{Paciente.editar(paciente.id)}">Editar</a> | 
 								<a href="@{Paciente.excluir(paciente.id)}"
-								onClick="if(!confirm('Deseja excluir este paciente?')){return false;}">Excluir</a>
+								onClick="if(!confirm('Deseja excluir este paciente?')){return false;}">Excluir</a> | 
+								<a href="@{Paciente.visualizar(paciente.id)}">Visualizar</a> |
+								
 								<a href="@{Application.inserir_procedimento(paciente.id)}">Inserir
 									Procedimento</a> <a
 								href="@{Application.visualizar_procedimento(paciente.id)}">Visualizar

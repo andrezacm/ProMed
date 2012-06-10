@@ -34,9 +34,13 @@ public class PacienteDAO {
 			Statement smt = connection.createStatement();
 
 			smt.executeUpdate(
-					"insert into paciente (cpf,rg,nome,sobrenome,data_cadastro) " +
-					"values ("+ paciente.getCpf() +","+ paciente.getRg() +",'"+ paciente.getNome() +
-					"','"+ paciente.getSobrenome() +"', '2012-05-21')");
+					"insert into paciente (cpf, rg, nome, sobrenome, data_nascimento, sexo, cidade, estado," +
+					"pais, observacoes, data_cadastro) " +
+					"values ("
+							+ paciente.getCpf() + ", " 			+ paciente.getRg() + ", '" 			+ paciente.getNome() + "' ,'"
+							+ paciente.getSobrenome() + "', '" 	+ paciente.data_nascimento + "', '" + paciente.sexo + "', '"
+							+ paciente.cidade + "', '" 			+ paciente.estado + "', '" 			+ paciente.pais + "', '"
+							+ paciente.observacoes + "', '" 	+ paciente.data_cadastro +"')");
 
 			// executa
 			smt.close();
@@ -55,8 +59,12 @@ public class PacienteDAO {
 			Statement smt = connection.createStatement();
 
 			smt.executeUpdate(
-					"update paciente set cpf="+ paciente.getCpf() +", rg="+ paciente.getRg() +", nome='"+ paciente.getNome() +
-					"', sobrenome='"+ paciente.getSobrenome() +"' where id = " + paciente.getId());
+					"update paciente set " +
+					"cpf=" + paciente.getCpf() +", rg="+ paciente.getRg() +", nome='"+ paciente.getNome() +
+					"', sobrenome='" + paciente.getSobrenome() + "', data_nascimento='" + paciente.data_nascimento +
+					"', sexo='" + paciente.sexo + "', cidade='" + paciente.cidade + "', estado='" + paciente.estado +
+					"', pais='" + paciente.pais + "', observacoes='" + paciente.observacoes +					
+					"' where id = " + paciente.getId());
 
 			// executa
 			smt.close();
@@ -100,8 +108,13 @@ public class PacienteDAO {
 			
 			while(resultado_consulta.next()){
 				MPaciente paciente = new MPaciente(resultado_consulta.getString("nome"), 
-						resultado_consulta.getString("sobrenome"), resultado_consulta.getString("cpf"), 
-						resultado_consulta.getString("rg"), resultado_consulta.getLong("id"));
+						resultado_consulta.getString("sobrenome"), 	resultado_consulta.getString("cpf"), 
+						resultado_consulta.getString("rg"), 		resultado_consulta.getString("data_nascimento"), 
+						resultado_consulta.getString("sexo"), 		resultado_consulta.getString("cidade"),
+						resultado_consulta.getString("estado"),		resultado_consulta.getString("pais"),
+						resultado_consulta.getString("observacoes"));
+				
+				paciente.setId(resultado_consulta.getLong("id"));
 				
 				pacientes.add(paciente);
 			}
@@ -131,8 +144,13 @@ public class PacienteDAO {
 			
 			while(resultado_consulta.next()){
 				MPaciente paciente = new MPaciente(resultado_consulta.getString("nome"), 
-						resultado_consulta.getString("sobrenome"), resultado_consulta.getString("cpf"), 
-						resultado_consulta.getString("rg"), resultado_consulta.getLong("id"));
+						resultado_consulta.getString("sobrenome"), 	resultado_consulta.getString("cpf"), 
+						resultado_consulta.getString("rg"), 		resultado_consulta.getString("data_nascimento"), 
+						resultado_consulta.getString("sexo"), 		resultado_consulta.getString("cidade"),
+						resultado_consulta.getString("estado"),		resultado_consulta.getString("pais"),
+						resultado_consulta.getString("observacoes"));
+				
+				paciente.setId(resultado_consulta.getLong("id"));
 				
 				pacientes.add(paciente);
 			}

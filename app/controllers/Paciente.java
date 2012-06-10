@@ -13,8 +13,11 @@ public class Paciente extends Controller{
 		render("Application/inserir_paciente.html");
 	}
 
-	public static void cadastrar_paciente(String nome, String sobrenome, String cpf, String rg) {
-		MPaciente paciente = new MPaciente(nome, sobrenome, cpf, rg);
+	public static void cadastrar_paciente(String nome, String sobrenome, String cpf, String rg, String data_nascimento, String sexo, 
+			String cidade, String estado, String pais, String observacoes) {
+		
+		MPaciente paciente = new MPaciente(nome, sobrenome, cpf, rg, data_nascimento, sexo, cidade, estado, pais, observacoes);
+		paciente.setDataCadastro();
 		
 		if (validation.hasErrors()) {
 			render("Application/inserir_paciente.html", paciente);
@@ -34,8 +37,12 @@ public class Paciente extends Controller{
 		render("Application/editar_paciente.html", paciente);
 	}
 	
-	public static void editar_paciente(String nome, String sobrenome, String cpf, String rg, Long id){
-		MPaciente paciente = new MPaciente(nome, sobrenome, cpf, rg, id);
+	public static void editar_paciente(String nome, String sobrenome, String cpf, String rg, String data_nascimento, String sexo, 
+			String cidade, String estado, String pais, String observacoes, Long id){
+		
+		MPaciente paciente = new MPaciente(nome, sobrenome, cpf, rg, data_nascimento, sexo, cidade, estado, pais, observacoes);
+		paciente.setId(id);
+		
 		paciente.editar();
 		listar();
 	}
@@ -43,6 +50,11 @@ public class Paciente extends Controller{
 	public static void excluir(Long id){
 		_paciente.deletar(id);
 		listar();
+	}
+	
+	public static void visualizar(int id){
+		MPaciente paciente = _paciente.getPaciente(id);
+		render("Application/visualizar_paciente.html", paciente);
 	}
 }
 

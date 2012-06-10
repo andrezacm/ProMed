@@ -1,0 +1,24 @@
+#{extends 'application.html' /}
+#{set title:'Home' /}
+
+<div class="container">
+
+	<div class="hero-unit">
+	    <p>
+	    	${paciente.nome} ${paciente.sobrenome} | ${paciente.sexo} | ${paciente.data_nascimento}
+	    </p>
+	    <p>
+	    	${paciente.rg} | ${paciente.cpf}
+	    </p>
+	    <p>
+	    	${paciente.cidade} | ${paciente.estado} | ${paciente.pais}
+	    </p>  
+	    <p>
+	    	${paciente.observacoes}
+	    </p>
+	      
+	</div>
+
+#{include 'footer.html' /}
+
+</div> <!-- /container -->
