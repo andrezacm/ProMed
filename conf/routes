@@ -8,6 +8,7 @@ GET     /application/consultar                  Application.consultar
 
 # Form
 GET 	/paciente/editar/{id}					Paciente.editar(id: int)
+GET 	/paciente/visualizar/{id}				Paciente.visualizar(id: int)
 
 
 # Ignore favicon requests

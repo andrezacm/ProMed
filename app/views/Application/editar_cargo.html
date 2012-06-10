@@ -1,0 +1,40 @@
+#{extends 'application.html' /} 
+#{set title:'Salvar Paciente' /}
+
+<div class="container">
+
+	<h2>Editar Cargo</h2>
+
+	<div class="hero-unit">
+
+	#{form @Cargo.editar_cargo() } 
+
+		#{ifErrors}
+			<p style="color: red;">
+				<strong>ATENÇÃO: </strong>Preencha todos os campos obrigatórios.
+			</p>
+		#{/ifErrors}
+
+
+		<div class="control-group">
+
+			<label for="nome">Nome:</label>
+			<div class="controls">
+				<input type="text" name="nome" id="nome" value="${cargo.nome}" />
+			</div>
+			
+			<label for="descricao">Descrição:</label>
+			<div class="controls">
+				<textarea name="descricao" id="descricao">${cargo.descricao}</textarea>
+			</div>
+		
+			<input type="hidden" name="id" value="${cargo.id}" />
+			
+			<input type="submit" value="Salvar" />
+
+		</div>
+
+	#{/form}
+
+	</div>
+</div>
