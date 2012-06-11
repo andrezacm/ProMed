@@ -14,6 +14,7 @@ public class Application extends Controller {
 		render();
 	}
 
+	/*
 	public static void inserir_paciente() {
 		render();
 	}
@@ -25,12 +26,12 @@ public class Application extends Controller {
 	public static void inserir_procedimento(Long idPaciente) {
 		render(idPaciente);
 	}
-	/*
+	
 	public static void visualizar_pacientes() {
 		List<MPaciente> paciente = MPaciente.find("order by nome asc").fetch();
 		render(paciente);
 	}
-	*/
+	
 	public static void visualizar_funcionario() {
 		List<MFuncionario> funcionario = MFuncionario.find("order by nome asc").fetch();
 		render(funcionario);
@@ -71,7 +72,7 @@ public class Application extends Controller {
 
 		paciente.save();
 		index();
-	}*/
+	}
 	
 	public static void cadastrar_funcionario(String nome,String dataNascimento,String sexo, String rg,String email,String telefone,String cargo) {
 		MFuncionario funcionario = new MFuncionario(nome,dataNascimento, sexo, rg,email,telefone,cargo);
@@ -100,7 +101,7 @@ public class Application extends Controller {
 	public static void consultar_paciente(){
 		/*		validation.required(request.params.get("nome"));
 		validation.required(request.params.get("rg"));
-		 */		
+		 		
 		String nome = request.params.get("nome");
 		List<Object> paciente = MPaciente.find("nome", nome).fetch();
 		render("Application/consultar.html", paciente);
@@ -129,7 +130,7 @@ public class Application extends Controller {
 		paciente.save();
 		index();
 	}*/
-	
+	/*
 	public static void editar_funcionario(long id) {
 		validation.required(request.params.get("nome"));
 
@@ -147,5 +148,5 @@ public class Application extends Controller {
 
 		funcionario.save();
 		index();
-	}
+	}*/
 }

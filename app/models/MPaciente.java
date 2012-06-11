@@ -31,7 +31,7 @@ public class MPaciente extends Model {
 	public String observacoes;
 	public String data_cadastro;
 
-	private PacienteDAO dao;
+	private static PacienteDAO dao;
 	
 	public MPaciente(){}
 	
@@ -99,7 +99,7 @@ public class MPaciente extends Model {
 		dao = new PacienteDAO(this);
 	}
 	
-	private void newDao(){
+	private static void newDao(){
 		dao = new PacienteDAO();
 	}
 	
@@ -118,12 +118,12 @@ public class MPaciente extends Model {
 		dao.deletar(id);
 	}
 	
-	public List<MPaciente> listar(){
+	public static List<MPaciente> listar(){
 		newDao();
 		return dao.getRegistros();
 	}
 	
-	public MPaciente getPaciente(int id){
+	public static MPaciente getPaciente(Long id){
 		newDao();
 		return dao.getPaciente(id);
 	}

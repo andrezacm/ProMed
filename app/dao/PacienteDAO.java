@@ -130,7 +130,7 @@ public class PacienteDAO {
 		return pacientes;
 	}
 	
-	public MPaciente getPaciente(int id){
+	public MPaciente getPaciente(Long id){
 		
 		String sql = "select * from paciente where id = " + id;
 		

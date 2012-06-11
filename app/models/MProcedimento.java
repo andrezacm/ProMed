@@ -4,25 +4,80 @@ import play.*;
 import play.db.jpa.*;
 import play.data.validation.*;
 import javax.persistence.*;
+
+import dao.ProcedimentoDAO;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.*;
+
 import play.data.validation.Required;
 import play.db.jpa.Model;
 
-@Entity
 public class MProcedimento extends Model {
 
-	@Required
-	public String nome;
-	@Required
-	public Long idPaciente;
-	public Long idFuncionario;
-	@Required
-	public String observacao;
+	//not null
+	public Long id;
+	public Long id_paciente;
+	public Long id_tipo_procedimento;
+	public String data_inicio;
+	public String data_fim;
+	public String local;
+	public String observacoes;
 
-	public MProcedimento(String nome, Long idPaciente, Long idFuncionario, String observacao)  {
-		this.nome = nome;
-		this.idPaciente= idPaciente;
-		this.idFuncionario = idFuncionario;
-		this.observacao = observacao;
+	private ProcedimentoDAO dao;
+	
+	public MProcedimento(){}
+	
+	public MProcedimento(Long id_paciente, Long id_tipo_procedimento, String data_inicio, String data_fim, 
+			String local, String observacoes) {
+		
+		this.id_paciente = id_paciente;
+		this.id_tipo_procedimento = id_tipo_procedimento;
+		this.data_inicio = data_inicio;
+		this.data_fim = data_fim;
+		this.local = local;
+		this.observacoes = observacoes;
+	}
+	
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+		
+	private void newDaoWithThis(){
+		dao = new ProcedimentoDAO(this);
+	}
+	
+	private void newDao(){
+		dao = new ProcedimentoDAO();
+	}
+	
+	public void salvar(){
+		newDaoWithThis();
+		dao.adicionar();
+	}
+	
+	public void editar(){
+		newDaoWithThis();
+		dao.editar();
+	}
+	
+	public void deletar(Long id){
+		newDao();
+		dao.deletar(id);
+	}
+	
+	public List<MProcedimento> listar(){
+		newDao();
+		return dao.getRegistros();
+	}
+	
+	public MProcedimento getProcedimento(int id){
+		newDao();
+		return dao.getProcedimento(id);
 	}
 }

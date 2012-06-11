@@ -1,14 +1,14 @@
 #{extends 'application.html' /} 
-#{set title:'Inserir Procedimento' /}
+#{set title:'Salvar Procedimento' /}
 
 <div class="container">
 
-	<h2>Inserir Procedimento</h2>
+	<h2>Editar procedimento</h2>
 
 	<div class="hero-unit">
 
-	#{form @Procedimento.cadastrar_procedimento()} 
-		
+	#{form @Procedimento.editar_procedimento() } 
+
 		#{ifErrors}
 			<p style="color: red;">
 				<strong>ATENÇÃO: </strong>Preencha todos os campos obrigatórios.
@@ -23,8 +23,8 @@
 	            <div class="controls">
 	              <select id="id_paciente" name="id_paciente">
 	              #{list items:models.MPaciente.listar(), as:'paciente'}
-	              	%{selected = (paciente.id == params.id_paciente) ? "selected" : ""}%
-	                <option value="${paciente.id}" "${selected}" >${paciente.nome}</option>
+	              	%{selected = (paciente.id == procedimento.id_paciente) ? "selected='selected'" : ""}%
+	                <option value="${paciente.id}" ${selected} >${paciente.nome}</option>
 	              #{/list}
 	              </select>
 	            </div>
@@ -35,8 +35,8 @@
 	            <div class="controls">
 	              <select id="id_tipo_procedimento" name="id_tipo_procedimento">
 	              #{list items:models.MTipoProcedimento.listar(), as:'tipo_procedimento'}
-	              	%{selected = (tipo_procedimento.id == params.id_tipo_procedimento) ? "selected" : ""}%
-	                <option value="${tipo_procedimento.id}" "${selected}" >${tipo_procedimento.nome}</option>
+	              	%{selected = (tipo_procedimento.id == procedimento.id_tipo_procedimento) ? "selected='selected'" : ""}%
+	                <option value="${tipo_procedimento.id}" ${selected} >${tipo_procedimento.nome}</option>
 	              #{/list}
 	              </select>
 	            </div>
@@ -44,25 +44,27 @@
 
 			<label for="data_inicio">Data e hora de início:</label>
 			<div class="controls">
-				<input type="text" name="data_inicio" id="data_inicio" value="${params.data_inicio}" />
+				<input type="text" name="data_inicio" id="data_inicio" value="${procedimento.data_inicio}" />
 			</div>
 			
 			<label for="data_fim">Data e hora de fim:</label>
 			<div class="controls">
-				<input type="text" name="data_fim" id="data_fim" value="${params.data_fim}" />
+				<input type="text" name="data_fim" id="data_fim" value="${procedimento.data_fim}" />
 			</div>
 
 			<label for="local">Local:</label>
 			<div class="controls">
-				<input type="text" name="local" id="local" value="${params.local}" />
+				<input type="text" name="local" id="local" value="${procedimento.local}" />
 			</div>
 			
 			<label for="observacoes">Observação:</label>
 			<div class="controls">
-				<textarea name="observacoes" id="observacoes">${params.observacoes}</textarea>
+				<textarea name="observacoes" id="observacoes">${procedimento.observacoes}</textarea>
 			</div>
+		
+			<input type="hidden" name="id" value="${procedimento.id}" />
 			
-			<input type="submit" value="Cadastrar" />
+			<input type="submit" value="Salvar" />
 
 		</div>
 

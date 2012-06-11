@@ -14,7 +14,6 @@
                 <ul class="dropdown-menu">
                   <li><a href='@{Paciente.cadastrar()}'>Inserir</a></li>
                   <li><a href="@{Paciente.listar()}">Listar</a></li>
-                  <li><a href="@{Application.consultar()}">Buscar</a></li>
                 </ul>
               </li>
               
@@ -31,11 +30,18 @@
                   <li><a href="@{Profissional.listar()}">Listar</a></li>
                 </ul>
               </li>
-              
-              <li class="dropdown" id="menu1"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Tipo de Procedimento <b class="caret"></b></a>
+
+			  <li class="dropdown" id="menu1"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Tipo de Procedimento <b class="caret"></b></a>
                 <ul class="dropdown-menu">
                   <li><a href="@{TipoProcedimento.cadastrar()}">Inserir</a></li>
                   <li><a href="@{TipoProcedimento.listar()}">Listar</a></li>
+                </ul>
+              </li>
+                            
+              <li class="dropdown" id="menu1"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Procedimento <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><a href="@{Procedimento.cadastrar()}">Inserir</a></li>
+                  <li><a href="@{Procedimento.listar()}">Listar</a></li>
                 </ul>
               </li>
               

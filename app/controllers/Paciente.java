@@ -32,7 +32,7 @@ public class Paciente extends Controller{
 		render("Application/listar_pacientes.html", lista);
 	}
 	
-	public static void editar(int id){
+	public static void editar(Long id){
 		MPaciente paciente = _paciente.getPaciente(id);
 		render("Application/editar_paciente.html", paciente);
 	}
@@ -52,7 +52,7 @@ public class Paciente extends Controller{
 		listar();
 	}
 	
-	public static void visualizar(int id){
+	public static void visualizar(Long id){
 		MPaciente paciente = _paciente.getPaciente(id);
 		render("Application/visualizar_paciente.html", paciente);
 	}

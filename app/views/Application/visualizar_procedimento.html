@@ -1,19 +1,28 @@
 #{extends 'application.html' /}
-#{set title:'Visualizaçao' /}
+#{set title:'Visualizar Procedimento' /}
 
-#{list items:procedimento, as:'procedimento'}
+<div class="container">
 
-<p><label for="nome">Nome: </label>${procedimento.nome}</p>
-<p><label for="paciente">Paciente: </label> ${procedimento.idPaciente} </p>
-<p><label for="funcionario">Funcionario: </label> ${procedimento.idFuncionario} </p>
-<p><label for="observacao">Observacao: </label>${procedimento.observacao}</p>
-<p>
-<hr />
+	<div class="hero-unit">
+	    <p>
+	    	%{paciente = models.MPaciente.getPaciente(procedimento.id_paciente)}% 
+	    	${paciente.nome}
+	    	| 
+	    	%{tipo_procedimento = models.MTipoProcedimento.getTipoProcedimento(procedimento.id_tipo_procedimento)}% 
+	    	${tipo_procedimento.nome}
+	    </p>
+	    <p>
+	    	${procedimento.data_inicio} | ${procedimento.data_fim}
+	    </p>
+	    <p>
+	    	${procedimento.local}
+	    </p>  
+	    <p>
+	    	${procedimento.observacoes}
+	    </p>
+	      
+	</div>
 
-#{/list}
+#{include 'footer.html' /}
 
-<div class="btn-submit">
-<p>
-<a href="@{Application.index()}">Voltar</a>
-</p>
-</div>
+</div> <!-- /container -->
