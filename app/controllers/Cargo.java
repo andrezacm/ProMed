@@ -31,7 +31,7 @@ public class Cargo extends Controller{
 		render("Application/listar_cargos.html", lista);
 	}
 	
-	public static void editar(int id){
+	public static void editar(Long id){
 		MCargo cargo = _cargo.getCargo(id);
 		render("Application/editar_cargo.html", cargo);
 	}
@@ -50,9 +50,8 @@ public class Cargo extends Controller{
 		listar();
 	}
 	
-	public static void visualizar(int id){
+	public static void visualizar(Long id){
 		MCargo cargo = _cargo.getCargo(id);
 		render("Application/visualizar_cargo.html", cargo);
 	}
 }
-

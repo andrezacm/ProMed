@@ -1,0 +1,38 @@
+#{extends 'application.html' /} 
+#{set title:'Inserir Tipo de Procedimento' /}
+
+<div class="container">
+
+	<h2>Inserir Tipo de Procedimento</h2>
+
+	<div class="hero-unit">
+
+	#{form @TipoProcedimento.cadastrar_tipo_procedimento()} 
+		
+		#{ifErrors}
+			<p style="color: red;">
+				<strong>ATENÇÃO: </strong>Preencha todos os campos obrigatórios.
+			</p>
+		#{/ifErrors}
+
+
+		<div class="control-group">
+
+			<label for="nome">Nome:</label>
+			<div class="controls">
+				<input type="text" name="nome" id="nome" value="${params.nome}" />
+			</div>
+			
+			<label for="descricao">Descrição:</label>
+			<div class="controls">
+				<textarea name="descricao" id="descricao">${params.descricao}</textarea>
+			</div>
+			
+			<input type="submit" value="Cadastrar" />
+
+		</div>
+
+	#{/form}
+
+	</div>
+</div>
