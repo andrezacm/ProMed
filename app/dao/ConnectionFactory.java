@@ -14,7 +14,7 @@ public class ConnectionFactory {
 			Class.forName("com.mysql.jdbc.Driver");  
 
 			// Registrado o driver, vamos estabelecer uma conexão  
-			return DriverManager.getConnection("jdbc:mysql://localhost/prontuario_medico","root", "admin");
+			return DriverManager.getConnection("jdbc:mysql://localhost/prontuario_medico","root", "");
 
 		} catch(SQLException e) { throw new RuntimeException(e); 
 		} catch (ClassNotFoundException e) { e.printStackTrace(); }

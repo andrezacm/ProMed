@@ -1,0 +1,65 @@
+#{extends 'home.html' /}
+#{set title:'ProMed | Sobre' /}
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	
+<body id="page1">
+	<div class="wrap">
+		<!-- header -->
+		<div class="header">
+			<div class="container">
+				<h1>
+					<a href="/">ProMed</a>
+				</h1>
+				<div class="nav">
+						<ul>
+							<li class="m1"><a href="/"><span><b>Inicio</b></span></a></li>
+							<li class="m2"><a href="@{Application.login()}"><span><b>Login</b></span></a></li>
+							<li class="m3"><a href="@{Application.sobre()}"
+								class="active"><span><b>Sobre</b></span></a></li>
+							<li class="m5 last"><a href="@{Application.contato()}"><span><b>Contato</b></span></a></li>
+						</ul>
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<!-- aside -->
+			<div class="aside">
+				<div class="inside">
+					<h2>Notícias Médicas</h2>
+					<ul class="news">
+						<li><a href="http://www.bibliomed.com.br/news/index/8997/browse/criancas-com-diabetes-tipo-1-e-doenca-celiaca-tem-crescimento-similar-aqueles-diabeticos-sem-a-doenca.html">08 de Junho, 2012</a><br>Crianças com diabetes tipo 1 e doença celíaca tem crescimento similar àqueles diabéticos sem a doença.</li>
+						<li><a href="http://www.bibliomed.com.br/news/index/8996/browse/assistencia-aos-pacientes-com-hiv-reduz-a-mortalidade-na-africa.html">06 de Junho, 2012</a><br>Assistência aos pacientes com HIV reduz a mortalidade na África.</li>
+						<li><a href="http://www.bibliomed.com.br/news/index/8994/browse/reduzir-o-tabagismo-diminui-riscos-cardiovasculares.html">05 de junho, 2012 </a><br>Reduzir o tabagismo diminui riscos cardiovasculares.</li>
+						<li><a href="http://www.bibliomed.com.br/news/index/9005/browse">02 de junho, 2012 </a><br>Terapia combinada de sinvastatina e fenofibrato pode não fornecer redução do risco cardiovascular adicional no diabetes tipo 2.</li>
+					</ul>
+				</div>
+			</div>
+			<!-- content -->
+			<div class="section" id="content">
+				<h2>Sobre o Site</h2>
+				<p class="p2">O sistema online ProMed é capaz de armazenar todas as informações de saúde ao longo da vida de um indivíduo, e muitos benefícios podem ser obtidos, como por exemplo, acesso rápido aos problemas de saúde e intervenções atuais, melhoria de efetividade do cuidado ou uma possível redução de custos com a otimização dos recursos.</p>
+				<h2 class="indent">Sobre nosso time</h2>
+				<ul class="list1">
+					<li><img src="/public/images/andreza.png" class="imgb" alt="" /><strong>Andreza Medeiros</strong>
+						É responsável por garantir que os valores, as regras e as práticas de Scrum estejam sendo utilizadas 
+						no projeto. Sua principal tarefa é ajudar o time a realizarem suas atividades de acordo com as regras de Scrum, 
+						eliminando os empecilhos que atrapalham o andamento do projeto.</li>
+					<li><img src="/public/images/peter.png" class="imgb" alt="" /><strong>Thiago Andrade</strong>
+						É responsável por gerar desempenho, qualidade, durabilidade e aparência de um produto. 
+						Cada trabalho a ser realizado exige planejamento, pesquisa, criatividade e técnica. 
+						Sua função é transformar Informação em Comunicação!</li>
+						<li><img src="/public/images/thaisa.png" class="imgb" alt="" /><strong>Thaisa Ramos</strong>
+						É responsável pelo êxito do esforço de teste. Seu papel envolve a defesa da qualidade e dos testes, 
+						planejamento e gerenciamento de recursos, pessoas e resolução de problemas que representam um 
+						obstáculo para o esforço de teste.</li>
+					<li><img src="/public/images/thiago.png" class="imgb" alt="" /><strong>Thiago Sena</strong>
+						É responsável por atingir os objetivos do Sprint, ou seja, entregar um produto pronto que contém as 
+						funcionalidades resultantes dos requisitos os quais se comprometeu a desenvolver no início do ciclo. 
+						</li>
+				</ul>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+
+</body>

@@ -1,0 +1,47 @@
+#{extends 'application.html' /} 
+#{set title:'Salvar Usuario' /}
+
+<div class="container">
+
+	<h2>Editar Usuario</h2>
+
+	<div class="hero-unit">
+
+	#{form @Usuario.editar_usuario() } 
+
+		#{ifErrors}
+			<p style="color: red;">
+				<strong>ATENÇÃO: </strong>Preencha todos os campos obrigatórios.
+			</p>
+		#{/ifErrors}
+
+
+		<div class="control-group">
+			
+			<label for="email">Email:</label>
+			<div class="controls">
+				<input type="text" name="email" id="email" value="${usuario.email}" />
+			</div>
+			
+			<label for="especialidade">Login:</label>
+			<div class="controls">
+				<input type="text" name="login" id="login" value="${usuario.login}" />
+			</div>
+		
+			<label for="observacao">Senha:</label>
+			<div class="controls">
+				<input type="password" name="senha" id="senha" value = "${usuario.senha}">
+			</div>
+		
+			<input type="hidden" name="id" value="${usuario.id}" />
+			
+			<input type="submit" value="Salvar" />
+
+		</div>
+
+	#{/form}
+
+	</div>
+</div>
+
+#{include 'footer.html' /}

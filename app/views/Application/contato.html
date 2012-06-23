@@ -1,0 +1,80 @@
+#{extends 'home.html' /} 
+#{set title:'ProMed | Contato' /}
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<body id="page1">
+	<div class="wrap">
+		<!-- header -->
+		<div class="header">
+			<div class="container">
+				<h1>
+					<a href="/">ProMed</a>
+				</h1>
+				<div class="nav">
+					<center>
+						<ul>
+							<li class="m1"><a href="/"><span><b>Inicio</b></span></a></li>
+							<li class="m2"><a href="@{Application.login()}"><span><b>Login</b></span></a></li>
+							<li class="m3"><a href="@{Application.sobre()}"><span><b>Sobre</b></span></a></li>
+							<li class="m5 last"><a href="@{Application.contato()}"  class="active"><span><b>Contato</b></span></a></li>
+						</ul>
+				</div>
+			</div>
+		</div>
+
+		<div class="container">
+			<!-- aside -->
+			<div class="aside">
+				<div class="inside">
+					<h2>Notícias Médicas</h2>
+					<ul class="news">
+						<li><a href="http://www.bibliomed.com.br/news/index/8997/browse/criancas-com-diabetes-tipo-1-e-doenca-celiaca-tem-crescimento-similar-aqueles-diabeticos-sem-a-doenca.html">08 de Junho, 2012</a><br>Crianças com diabetes tipo 1 e doença celíaca tem crescimento similar àqueles diabéticos sem a doença.</li>
+						<li><a href="http://www.bibliomed.com.br/news/index/8996/browse/assistencia-aos-pacientes-com-hiv-reduz-a-mortalidade-na-africa.html">06 de Junho, 2012</a><br>Assistência aos pacientes com HIV reduz a mortalidade na África.</li>
+						<li><a href="http://www.bibliomed.com.br/news/index/8994/browse/reduzir-o-tabagismo-diminui-riscos-cardiovasculares.html">05 de junho, 2012 </a><br>Reduzir o tabagismo diminui riscos cardiovasculares.</li>
+						<li><a href="http://www.bibliomed.com.br/news/index/9005/browse">02 de junho, 2012 </a><br>Terapia combinada de sinvastatina e fenofibrato pode não fornecer redução do risco cardiovascular adicional no diabetes tipo 2.</li>
+					</ul>
+				</div>
+			</div>
+			<!-- content -->
+
+			<div class="section" id="content">
+				<h2>Contato</h2>
+
+				#{ifErrors}
+				<div class="linha">
+					<p style="color: red;">
+						<strong>ATENÇÃO: </strong>Preencha todos os campos obrigatórios.
+					</p>
+				</div>
+				<div class="linha"></div>
+				#{/ifErrors}
+
+				#{form @Application.getContato()}
+				<div id="contacts-form">
+					<fieldset>
+						<div class="field">
+							<label>Nome:</label> <input type="text" autofocus="autofocus" autocomplete="on" >
+						</div>
+						<div class="field">
+							<label>E-mail:</label> <input type="text">
+						</div>
+						<div class="field">
+							<label>Website:</label> <input type="text">
+						</div>
+						<div class="field">
+							<label>Mensagem:</label>
+							<textarea cols="1" rows="1"></textarea>
+						</div>
+						<div class="button">
+							<input type="submit" value="Enviar"></input>
+						</div>
+					</fieldset>
+				</div>
+				#{/form}
+			</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+
+
+</body>

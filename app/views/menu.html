@@ -47,11 +47,12 @@
               
               <li class="dropdown" id="menu1"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Usuário <b class="caret"></b></a>
                 <ul class="dropdown-menu">
-                  <li><a href="#">Inserir</a></li>
-                  <li><a href="#">Listar</a></li>
-                  <li><a href="#">Buscar</a></li>
+                  <li><a href="@{Usuario.cadastrar()}">Inserir</a></li>
+                  <li><a href="@{Usuario.listar()}">Listar</a></li>
                 </ul>
               </li>
+              
+              <li><a href="@{Application.logout()}">Sair</a></li>
               
             </ul>
           </div><!--/.nav-collapse -->

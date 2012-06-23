@@ -1,9 +1,9 @@
 #{extends 'application.html' /}
-#{set title:'EdiÁ„o' /}
+#{set title:'Edição' /}
 
 #{form @Application.editar_funcionario(funcionario.id)}
 #{ifErrors}
-<div class="linha"><p style="color:red;"><strong>ATEN«√O: </strong>Preencha todos os campos obrigatÛrios.</p></div>
+<div class="linha"><p style="color:red;"><strong>ATENÇÃO: </strong>Preencha todos os campos obrigatórios.</p></div>
 <div class="linha"></div>
 #{/ifErrors}
 
@@ -28,3 +28,5 @@
 </div>
 
 #{/form}
+
+#{include 'footer.html' /}

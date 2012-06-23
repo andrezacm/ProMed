@@ -18,15 +18,16 @@
 
 		<div class="control-group">
 
-			<label for="nome">Nome:</label>
+			<label for="nome">Nome:*</label>
 			<div class="controls">
 				<input type="text" name="nome" id="nome" value="${params.nome}" />
 			</div>
 			
-			<label for="descricao">Descrição:</label>
+			<label for="descricao">Descrição:*</label>
 			<div class="controls">
 				<textarea name="descricao" id="descricao">${params.descricao}</textarea>
 			</div>
+			<div>* Campos obrigatórios</div>
 			
 			<input type="submit" value="Cadastrar" />
 
@@ -36,3 +37,5 @@
 
 	</div>
 </div>
+
+#{include 'footer.html' /}

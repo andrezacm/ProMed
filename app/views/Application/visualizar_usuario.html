@@ -1,0 +1,18 @@
+#{extends 'application.html' /}
+#{set title:'Visualizar Usuario' /}
+
+<div class="container">
+
+	<div class="hero-unit">
+	    <p>
+	    	${usuario.login} | ${usuario.senha}
+	    </p>
+	    <p>
+	    	${usuario.email}
+	    </p>
+	      
+	</div>
+
+#{include 'footer.html' /}
+
+</div> <!-- /container -->

@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+	<title>ProMed | Acesso ao sistema</title>
+	<link rel="SHORTCUT ICON" href="/public/images/favicon.ico">
+		<link rel="stylesheet" href="@{'/public/stylesheets/login.css'}"
+			type="text/css" media="screen">
+
+			<script type="text/javascript" charset="utf-8"
+				src="/public/javascripts/jquery-1.6.4.min.js"></script>
+			<script type="text/javascript" charset="utf-8"
+				src="/public/javascripts/login.js"></script>
+			<script type="text/javascript"
+				src="chrome-extension://bfbmjmiodbnnpllbbbfblcplfjjepjdn/js/injected.js"></script>
+</head>
+<body class="login">
+	<div class="content">
+		<h1>
+			<a tabindex="1" href="/">ProMed, software para gestão de clínicas</a>
+		</h1>
+		<h2>Acesso ao sistema</h2>
+
+
+
+		#{form @Application.getLogin()}
+
+		<fieldset>
+			<legend>Seja bem-vindo, para prosseguir é necessário ter uma
+				conta no ProMed e acesso ao sistema. Caso tenha dúvidas entre em
+				contato.</legend>
+			<div style="display: none">
+				<input type="hidden" name="csrfmiddlewaretoken"
+					value="a07912418d1ba9f086af3bf5d61a78d5">
+			</div>
+
+			#{ifErrors}
+			<div class="linha">
+				<p style="color: red;">
+					<strong>ATENÇÃO: </strong>Preencha todos os campos obrigatórios.
+				</p>
+			</div>
+			<div class="linha"></div>
+			#{/ifErrors}
+
+			<ul class="fields">
+				<li><label for="login">Usuário:</label> <input type="text"
+					name="login" value="${params.login}" tabindex="3" id="login"></li>
+				<li><label for="senha">Senha:</label> <a href="" tabindex="2">Esqueceu?</a>
+					<input type="password" name="senha" tabindex="4"
+					value="${params.senha}" id="senha"></li>
+				<li class="clear"></li>
+			</ul>
+
+			<label class="check"><span class="checkbox checked"><input
+					type="checkbox" tabindex="5" name="remember_me" value="1"
+					checked="checked"></span>Lembrar meu usuário </label> <input type="submit"
+				value="Entrar">
+		</fieldset>
+		#{/form}
+
+	</div>
+	<p class="security">
+		<strong>Ambiente seguro</strong> Todas as informações transmitidas são
+		criptografadas
+	</p>
+
+</body>
+</html>

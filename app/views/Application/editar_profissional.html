@@ -43,8 +43,8 @@
 	            <div class="controls">
 	              <select id="id_cargo" name="id_cargo">
 	              #{list items:models.MCargo.listar(), as:'cargo'}
-	              	%{selected = (cargo.id == profissional.id_cargo) ? "selected='selected'" : ""}%
-	                <option value="${cargo.id}" ${selected} >${cargo.nome}</option>
+	              	%{selected = (cargo.id == profissional.id_cargo) ? "selected" : ""}%
+	                <option value="${cargo.id}" selected="${selected}" >${cargo.nome}</option>
 	              #{/list}
 	              </select>
 	            </div>
@@ -70,3 +70,5 @@
 
 	</div>
 </div>
+
+#{include 'footer.html' /}

@@ -1,0 +1,84 @@
+#{extends 'application.html' /} 
+#{set title:'Inserir Anamnese' /}
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<div class="container">
+
+	<h2>Inserir Anamnese</h2>
+
+	<div class="hero-unit">
+
+	#{form @Anamnese.cadastrar_anamnese()} 
+		
+		#{ifErrors}
+			<p style="color: red;">
+				<strong>ATENÇÃO: </strong>Preencha todos os campos obrigatórios.
+			</p>
+		#{/ifErrors}
+
+
+		<div class="control-group">
+
+			<label for="endereco">Endereço:</label>
+			<div class="controls">
+				<input type="text"name="endereco" id="endereco" value="${params.endereco}" />
+			</div>
+			
+			<label for="estado_civil">Estado civil:</label>
+			<div class="controls">
+				<input type="text" name="estado_civil" id="estado_civil" value="${params.estado_civil}" />
+			</div>
+
+			<label for="profissao">Profissão</label>
+			<div class="controls">
+				<input type="text" name="profissao" id="profissao" value="${params.profissao}" />
+			</div>
+			
+			<label for="local_de_trabal">Local do trabalho</label>
+			<div class="controls">
+				<input type="text" name="local_de_trabal" id="local_de_trabal" value="${params.local_de_trabal}" />
+			</div>
+			
+			<label for="procedencia">Procedência</label>
+			<div class="controls">
+				<input type="text" name="procedencia" id="procedencia" value="${params.procedencia}" />
+			</div>
+			
+			
+			<label for="qp">Queixa Principal:</label>
+			<div class="controls">
+				<textarea name="qp" id="qp">${params.qp}</textarea>
+			</div>
+			
+		
+			
+			<label for="cd">Caracterização da dor:</label>
+			<div class="controls">
+				<textarea name="cd" id="cd">${params.cd}</textarea>
+			</div>
+			
+			<label for="hda">História da doença atual</label>
+			<div class="controls">
+				<textarea name="hda" id="hda">${params.hda} </textarea>
+			</div>
+			
+			<label for="hpp">História patológica pregressa:</label>
+			<div class="controls">
+				<textarea name="hpp" id="hpp">${params.hpp} </textarea>
+			</div>
+			
+			<label for="hf">Histórico Familiar:</label>
+			<div class="controls">
+				<textarea name="hf" id="hf">${params.hf}</textarea>
+			</div>
+			
+			<input type="submit" value="Cadastrar" />
+
+		</div>
+
+	#{/form}
+
+	</div>
+</div>
+
+#{include 'footer.html' /}

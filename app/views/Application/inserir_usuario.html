@@ -1,0 +1,45 @@
+#{extends 'application.html' /} 
+#{set title:'Inserir Usuario' /}
+
+<div class="container">
+
+	<h2>Inserir Usuario</h2>
+
+	<div class="hero-unit">
+
+	#{form @Usuario.cadastrar_usuario()} 
+		
+		#{ifErrors}
+			<p style="color: red;">
+				<strong>ATENÇÃO: </strong>Preencha todos os campos obrigatórios.
+			</p>
+		#{/ifErrors}
+
+
+		<div class="control-group">
+			
+			<label for="email">Email:</label>
+			<div class="controls">
+				<input type="text" name="email" id="email" value="${params.email}" />
+			</div>
+
+			<label for="login">Login:</label>
+			<div class="controls">
+				<input type="text" name="login" id="login" value="${params.login}" />
+			</div>
+			
+			<label for="senha">Senha:</label>
+			<div class="controls">
+				<input type="password" name="senha" id="senha" value="${params.senha}" />
+			</div>
+			
+			<input type="submit" value="Cadastrar" />
+
+		</div>
+
+	#{/form}
+
+	</div>
+</div>
+
+#{include 'footer.html' /}

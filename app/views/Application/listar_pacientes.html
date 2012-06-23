@@ -25,11 +25,10 @@
 								<a href="@{Paciente.excluir(paciente.id)}"
 								onClick="if(!confirm('Deseja excluir este paciente?')){return false;}">Excluir</a> | 
 								<a href="@{Paciente.visualizar(paciente.id)}">Visualizar</a> |
-								
-								<a href="@{Application.inserir_procedimento(paciente.id)}">Inserir
-									Procedimento</a> <a
-								href="@{Application.visualizar_procedimento(paciente.id)}">Visualizar
-									Procedimento</a></td>
+						
+									<a href="@{Application.inserir_anamnese(paciente.id)}">  Inserir
+									Amamnese</a>					
+						
 						</tr>
 
 						#{/list}
@@ -41,3 +40,5 @@
 		</div>
 	</div>
 </div>
+
+#{include 'footer.html' /}
